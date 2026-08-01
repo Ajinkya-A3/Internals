@@ -59,7 +59,7 @@ These are two different, commonly confused concepts:
                     │   │ Switch A │    │ Switch B │   │
                     │   └──────────┘    └──────────┘   │
                     │   each switch PORT is its own    │
-                    │   collision domain               
+                    │   collision domain               │
                     └──────────────────────────────────┘
 ```
 

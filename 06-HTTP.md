@@ -9,8 +9,8 @@ HTTP is a stateless, request-response application-layer protocol. "Stateless" me
 ```
 Client                                Server
   │──── GET /page HTTP/1.1 ───────────►│
-  │      Host: example.com            │
-  │      Connection: keep-alive       │
+  │      Host: example.com             │
+  │      Connection: keep-alive        │
   │◄──── HTTP/1.1 200 OK ──────────────│
   │      Content-Length: 1234          │
   │      (body)                        │
@@ -29,7 +29,8 @@ Client                                Server
   │  Stream 2: GET /app.js      ───────────►  │  All multiplexed
   │  Stream 3: GET /logo.png    ───────────►  │  over ONE connection
   │  Responses can arrive in ANY order,       │
-  │  interleaved as frames, then reassembled  │  └───────────────────────────────────────────┘
+  │  interleaved as frames, then reassembled  │  
+  └───────────────────────────────────────────┘
 ```
 
 Key improvements over HTTP/1.1:
