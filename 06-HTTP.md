@@ -8,10 +8,10 @@ HTTP is a stateless, request-response application-layer protocol. "Stateless" me
 
 ```
 Client                                Server
-  │──── GET /page HTTP/1.1 ─────────►│
+  │──── GET /page HTTP/1.1 ───────────►│
   │      Host: example.com            │
-  │      Connection: keep-alive        │
-  │◄──── HTTP/1.1 200 OK ─────────────│
+  │      Connection: keep-alive       │
+  │◄──── HTTP/1.1 200 OK ──────────────│
   │      Content-Length: 1234          │
   │      (body)                        │
   │  (connection stays open for reuse) │
@@ -25,12 +25,11 @@ Client                                Server
 ```
               Single TCP connection
   ┌───────────────────────────────────────────┐
-  │  Stream 1: GET /style.css   ───────────►   │
-  │  Stream 2: GET /app.js      ───────────►   │  All multiplexed
-  │  Stream 3: GET /logo.png    ───────────►   │  over ONE connection
-  │  Responses can arrive in ANY order,        │
-  │  interleaved as frames, then reassembled   │
-  └───────────────────────────────────────────┘
+  │  Stream 1: GET /style.css   ───────────►  │
+  │  Stream 2: GET /app.js      ───────────►  │  All multiplexed
+  │  Stream 3: GET /logo.png    ───────────►  │  over ONE connection
+  │  Responses can arrive in ANY order,       │
+  │  interleaved as frames, then reassembled  │  └───────────────────────────────────────────┘
 ```
 
 Key improvements over HTTP/1.1:
@@ -46,9 +45,9 @@ Remaining problem: HTTP/2 fixed *application-layer* HOL blocking, but it still r
 ```
        Built on QUIC (runs over UDP, not TCP)
   ┌───────────────────────────────────────────┐
-  │  Stream 1 ──►  (independent, own ordering) │
-  │  Stream 2 ──►  (packet loss here doesn't   │
-  │  Stream 3 ──►   block Streams 1 & 2!)      │
+  │  Stream 1 ──►  (independent, own ordering)│
+  │  Stream 2 ──►  (packet loss here doesn't  │
+  │  Stream 3 ──►   block Streams 1 & 2!)     │
   └───────────────────────────────────────────┘
 ```
 

@@ -7,7 +7,7 @@ A container is not a special kernel object — it's just an ordinary Linux proce
 ```
                      Linux Kernel (single instance, shared by everyone)
                                     │
-        ┌───────────────────────────┼───────────────────────────┐
+        ┌───────────────────────────┼─────────────────────────────┐
         │                           │                             │
   PID namespace A              PID namespace B              PID namespace C
   (Container 1 sees             (Container 2 sees             (Host sees

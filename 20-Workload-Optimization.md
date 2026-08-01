@@ -27,13 +27,13 @@ Application running
 ```
 Flamegraph (each box = a function; width = proportion of samples/time; stacked = call depth)
 
-┌──────────────────────────────────────────────────────────┐
+┌────────────────────────────────────────────────────────────┐
 │                        main()                              │
 ├───────────────────────┬────────────────────────────────────┤
-│      handleRequest()    │         backgroundJob()            │
-├───────────┬─────────────┼──────────────┬─────────────────────┤
-│ parseJSON()│ dbQuery()   │  computeX()   │      gcPause        │
-└───────────┴─────────────┴──────────────┴─────────────────────┘
+│      handleRequest()    │         backgroundJob()          │
+├────────────┬─────────────┼───────────────┬─────────────────┤
+│ parseJSON()│ dbQuery()   │  computeX()   │      gcPause    │
+└────────────┴─────────────┴───────────────┴─────────────────┘
      narrow          WIDE ← most CPU time spent here (dbQuery)
 ```
 

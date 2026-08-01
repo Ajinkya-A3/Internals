@@ -21,25 +21,25 @@ Asymmetric crypto is computationally expensive — encrypting an entire video st
 
 ```
 Client                                          Server
-  │──── ClientHello ──────────────────────────►│
-  │      (TLS versions supported, cipher       │
-  │       suites, SNI = "which hostname",      │
-  │       ALPN = "which app protocol")          │
+  │──── ClientHello ────────────────────────────►│
+  │      (TLS versions supported, cipher         │
+  │       suites, SNI = "which hostname",        │
+  │       ALPN = "which app protocol")           │
   │                                              │
-  │◄──── ServerHello + Certificate ─────────────│
-  │      (chosen cipher suite, server's         │
-  │       certificate signed by a trusted CA)   │
+  │◄──── ServerHello + Certificate ──────────────│
+  │      (chosen cipher suite, server's          │
+  │       certificate signed by a trusted CA)    │
   │                                              │
-  │──── Key exchange (e.g., ECDHE) ────────────►│
+  │──── Key exchange (e.g., ECDHE) ─────────────►│
   │◄──── Key exchange ───────────────────────────│
-  │      Both sides independently derive the    │
-  │      SAME symmetric session key without     │
-  │      ever transmitting it on the wire       │
+  │      Both sides independently derive the     │
+  │      SAME symmetric session key without      │
+  │      ever transmitting it on the wire        │
   │                                              │
-  │──── Finished (encrypted) ──────────────────►│
+  │──── Finished (encrypted) ───────────────────►│
   │◄──── Finished (encrypted) ───────────────────│
   │                                              │
-  │   ═══ All further data: fast symmetric ═══  │
+  │   ═══ All further data: fast symmetric ═══   │
   │        encryption (AES-GCM / ChaCha20)       │
 ```
 

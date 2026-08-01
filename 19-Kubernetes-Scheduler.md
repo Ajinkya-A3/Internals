@@ -7,17 +7,17 @@
               │
               ▼
      ┌─────────────────┐
-     │   FILTER phase    │   "Which nodes are even CAPABLE of running this pod?"
+     │   FILTER phase  │   "Which nodes are even CAPABLE of running this pod?"
      └─────────────────┘   (a hard yes/no per node — eliminates ineligible nodes)
               │
               ▼
      ┌─────────────────┐
-     │   SCORE phase     │   "Of the nodes that passed filtering, which is the BEST fit?"
+     │   SCORE phase   │   "Of the nodes that passed filtering, which is the BEST fit?"
      └─────────────────┘   (each node gets a numeric score from multiple plugins)
               │
               ▼
      ┌─────────────────┐
-     │    BIND phase     │   Scheduler writes the decision back to the API server —
+     │    BIND phase   │   Scheduler writes the decision back to the API server —
      └─────────────────┘   the Pod's spec.nodeName is set, kubelet on that node takes over
 ```
 

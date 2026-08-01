@@ -9,62 +9,62 @@ This is the single most common networking interview question because it forces y
             │
             ▼
  ┌───────────────────────────┐
- │ 1. Browser checks caches   │  browser cache → OS cache → hosts file
+ │ 1. Browser checks caches  │  browser cache → OS cache → hosts file
  └───────────────────────────┘
             │ (cache miss)
             ▼
  ┌───────────────────────────┐
- │ 2. DNS Resolution          │  Recursive resolver → Root → TLD → Authoritative
+ │ 2. DNS Resolution         │  Recursive resolver → Root → TLD → Authoritative
  └───────────────────────────┘
             │ (now we have an IP, e.g. 142.250.72.14)
             ▼
  ┌───────────────────────────┐
- │ 3. ARP (if needed)         │  Resolve default gateway's MAC address
+ │ 3. ARP (if needed)        │  Resolve default gateway's MAC address
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 4. TCP 3-Way Handshake     │  SYN → SYN-ACK → ACK  (with the server IP:443)
+ │ 4. TCP 3-Way Handshake    │  SYN → SYN-ACK → ACK  (with the server IP:443)
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 5. TLS Handshake           │  ClientHello → ServerHello+Cert → Key exchange → Finished
+ │ 5. TLS Handshake          │  ClientHello → ServerHello+Cert → Key exchange → Finished
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 6. HTTP Request            │  GET / HTTP/2  over the encrypted TLS tunnel
+ │ 6. HTTP Request           │  GET / HTTP/2  over the encrypted TLS tunnel
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 7. Routing across networks │  Home router → ISP → Internet backbone (BGP)
+ │ 7. Routing across networks│  Home router → ISP → Internet backbone (BGP)
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 8. Load Balancer           │  L4/L7 LB picks a healthy backend (e.g. Envoy/NLB)
+ │ 8. Load Balancer          │  L4/L7 LB picks a healthy backend (e.g. Envoy/NLB)
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 9. Reverse Proxy / Nginx   │  TLS termination (if not done earlier), routing rules
+ │ 9. Reverse Proxy / Nginx  │  TLS termination (if not done earlier), routing rules
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 10. Application Server     │  Node/Java/Go app processes the request
+ │ 10. Application Server    │  Node/Java/Go app processes the request
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 11. Database                │  Query executes, result returned
+ │ 11. Database              │  Query executes, result returned
  └───────────────────────────┘
             │
             ▼
  ┌───────────────────────────┐
- │ 12. Response travels back  │  App → Nginx → LB → Internet → ISP → Router → Browser
+ │ 12. Response travels back │  App → Nginx → LB → Internet → ISP → Router → Browser
  └───────────────────────────┘
             │
             ▼

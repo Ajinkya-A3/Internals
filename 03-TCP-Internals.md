@@ -7,11 +7,11 @@ TCP's entire job is to turn an unreliable, best-effort IP network into a **relia
 ```
 Client                                  Server
   │                                        │
-  │──────── SYN (seq = x) ───────────────►│   "I want to talk, my starting seq is x"
+  │──────── SYN (seq = x)  ───────────────►│   "I want to talk, my starting seq is x"
   │                                        │
-  │◄─────── SYN-ACK (seq = y, ack = x+1) ─│   "OK, here's mine (y), got yours (x+1 expected next)"
+  │◄─────── SYN-ACK (seq = y, ack = x+1)  ─│   "OK, here's mine (y), got yours (x+1 expected next)"
   │                                        │
-  │──────── ACK (ack = y+1) ─────────────►│   "Got it, confirmed"
+  │──────── ACK (ack = y+1)  ─────────────►│   "Got it, confirmed"
   │                                        │
   │         connection ESTABLISHED         │
 ```
@@ -24,11 +24,11 @@ TCP connections close independently in each direction (it's full-duplex, so eith
 
 ```
 Client                                  Server
-  │──────── FIN ──────────────────────►│   "I'm done sending"
-  │◄─────── ACK ────────────────────────│
+  │──────── FIN ────────────────────────►│   "I'm done sending"
+  │◄─────── ACK ─────────────────────────│
   │                                      │   (server may still send data)
   │◄─────── FIN ─────────────────────────│  "I'm done sending too"
-  │──────── ACK ──────────────────────►│
+  │──────── ACK ────────────────────────►│
   │        connection CLOSED             │
 ```
 
@@ -118,7 +118,7 @@ TCP keepalive periodically sends empty/probe segments on an otherwise idle conne
 ```
               ESTABLISHED
                    │
-        ┌──────────┴──────────┐
+        ┌──────────┴────────────┐
    (active closer)       (passive closer)
         │                       │
      FIN_WAIT_1              CLOSE_WAIT   ← waiting for local app to call close()

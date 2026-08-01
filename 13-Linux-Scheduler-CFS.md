@@ -61,11 +61,11 @@ Why this matters in practice:
 On multi-socket servers, memory is physically attached to specific CPU sockets — a CPU can access its **local** memory fast, but accessing another socket's memory ("remote" memory) is slower, since it has to traverse an interconnect between sockets.
 
 ```
-┌─────────────────┐        interconnect        ┌─────────────────┐
-│   NUMA Node 0    │◄──────────────────────────►│   NUMA Node 1    │
+┌──────────────────┐        interconnect         ┌──────────────────┐
+│   NUMA Node 0    │◄───────────────────────────►│   NUMA Node 1    │
 │  CPU 0-7         │                             │  CPU 8-15        │
 │  Local RAM bank A│                             │  Local RAM bank B│
-└─────────────────┘                             └─────────────────┘
+└──────────────────┘                             └──────────────────┘
 
 CPU 0 accessing RAM bank A → fast (local)
 CPU 0 accessing RAM bank B → slower (remote, crosses interconnect)

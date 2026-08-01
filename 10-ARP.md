@@ -20,8 +20,8 @@ Host B (192.168.1.20, MAC BB:BB:BB:BB:BB:BB)
 
 Step 1 — Host A broadcasts an ARP Request to EVERYONE on the local subnet:
    ┌─────────────────────────────────────────────────┐
-   │  Broadcast (dest MAC = FF:FF:FF:FF:FF:FF)         │
-   │  "Who has 192.168.1.20? Tell 192.168.1.10"        │
+   │  Broadcast (dest MAC = FF:FF:FF:FF:FF:FF)       │
+   │  "Who has 192.168.1.20? Tell 192.168.1.10"      │
    └─────────────────────────────────────────────────┘
                           │
         Every host on the subnet receives this frame,
@@ -29,8 +29,8 @@ Step 1 — Host A broadcasts an ARP Request to EVERYONE on the local subnet:
 
 Step 2 — Host B sends an ARP Reply, UNICAST directly back to Host A:
    ┌─────────────────────────────────────────────────┐
-   │  Unicast (dest MAC = AA:AA:AA:AA:AA:AA)           │
-   │  "192.168.1.20 is at BB:BB:BB:BB:BB:BB"           │
+   │  Unicast (dest MAC = AA:AA:AA:AA:AA:AA)         │
+   │  "192.168.1.20 is at BB:BB:BB:BB:BB:BB"         │
    └─────────────────────────────────────────────────┘
 
 Step 3 — Host A now caches this mapping (ARP cache) and can send

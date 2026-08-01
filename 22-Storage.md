@@ -33,17 +33,17 @@ Direct I/O (O_DIRECT flag):
 Container images are built from **layers**, and OverlayFS is the mechanism that stacks them into a single unified filesystem view without duplicating data.
 
 ```
-                    ┌─────────────────────────┐
+                    ┌───────────────────────────┐
                     │   Container (writable)    │  ← "upper" layer: only THIS
-                    │   layer — new/changed      │    layer is writable; changes
-                    │   files go here             │    here don't affect the image
-                    ├─────────────────────────┤
-                    │   Image layer 3 (app code) │  ← read-only
-                    ├─────────────────────────┤
-                    │   Image layer 2 (deps)     │  ← read-only
-                    ├─────────────────────────┤
-                    │   Image layer 1 (base OS)  │  ← read-only
-                    └─────────────────────────┘
+                    │   layer — new/changed     │    layer is writable; changes
+                    │   files go here           │    here don't affect the image
+                    ├───────────────────────────┤
+                    │   Image layer 3 (app code)│  ← read-only
+                    ├───────────────────────────┤
+                    │   Image layer 2 (deps)    │  ← read-only
+                    ├───────────────────────────┤
+                    │   Image layer 1 (base OS) │  ← read-only
+                    └───────────────────────────┘
                               │
                     OverlayFS merges all of these
                     into ONE unified view the

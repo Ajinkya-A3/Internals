@@ -7,9 +7,9 @@ DNS is a distributed, hierarchical, heavily cached database that maps human-frie
 ## The resolution hierarchy
 
 ```
-                         [ . ]  Root servers (13 logical root server clusters worldwide)
+                        [ . ]  Root servers (13 logical root server clusters worldwide)
                           │
-              "who handles .com?"
+                    "who handles .com?"
                           │
                           ▼
                    [ .com TLD servers ]

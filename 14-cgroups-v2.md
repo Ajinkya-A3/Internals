@@ -51,7 +51,7 @@ cpu.max = "50000 100000"   (meaning: 50ms quota per 100ms period → 0.5 CPU lim
 Period timeline (repeats every 100ms):
  |---- 0ms to 50ms: container CAN run, consuming its quota ----|---- 50ms to 100ms: quota exhausted, THROTTLED (cannot run even if CPU is idle) ----|
  |<--------------------------- 100ms period ------------------------------------->|
-                                                                                    │
+                                                                                  │
                                                                       new period starts, quota resets
 ```
 

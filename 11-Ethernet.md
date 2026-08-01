@@ -6,7 +6,7 @@ A MAC (Media Access Control) address is a 48-bit hardware address burned into (o
 
 ```
 AA:BB:CC:DD:EE:FF
-└──┬──┘ └────┬────┘
+└──┬──┘  └──┬──┘
  Vendor    Unique device
  (OUI)     identifier
 ```
@@ -51,16 +51,16 @@ A switch builds a **MAC address table** by observing the source MAC of every inc
 These are two different, commonly confused concepts:
 
 ```
-                    ┌─────────────────────────────────┐
-                    │         Broadcast Domain          │
-                    │   (bounded by a ROUTER/L3 device)  │
-                    │                                    │
-                    │   ┌──────────┐    ┌──────────┐    │
-                    │   │ Switch A │    │ Switch B │    │
-                    │   └──────────┘    └──────────┘    │
-                    │   each switch PORT is its own      │
-                    │   collision domain                 │
-                    └─────────────────────────────────┘
+                    ┌──────────────────────────────────┐
+                    │         Broadcast Domain         │
+                    │   (bounded by a ROUTER/L3 device)│
+                    │                                  │
+                    │   ┌──────────┐    ┌──────────┐   │
+                    │   │ Switch A │    │ Switch B │   │
+                    │   └──────────┘    └──────────┘   │
+                    │   each switch PORT is its own    │
+                    │   collision domain               
+                    └──────────────────────────────────┘
 ```
 
 - **Collision domain** — the set of devices that could cause a collision if they transmit at the exact same time (relevant to old shared-medium/half-duplex Ethernet, like hubs, or old coax runs). Every switch port is its own collision domain in modern full-duplex switched networks — collisions in practice are essentially a non-issue on modern switched Ethernet.
@@ -73,10 +73,10 @@ A VLAN (Virtual LAN) lets a single physical switch be logically partitioned into
 ```
 Physical Switch
  ┌─────────────────────────────────────────┐
- │  Port 1 (VLAN 10) ── Port 2 (VLAN 10)    │  ← same broadcast domain
- │  Port 3 (VLAN 20) ── Port 4 (VLAN 20)    │  ← different broadcast domain
- │  Port 5 (Trunk, carries VLAN 10 & 20     │
- │           tagged, to another switch)      │
+ │  Port 1 (VLAN 10) ── Port 2 (VLAN 10)   │  ← same broadcast domain
+ │  Port 3 (VLAN 20) ── Port 4 (VLAN 20)   │  ← different broadcast domain
+ │  Port 5 (Trunk, carries VLAN 10 & 20    │
+ │           tagged, to another switch)    │
  └─────────────────────────────────────────┘
 ```
 

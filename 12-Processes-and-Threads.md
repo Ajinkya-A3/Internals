@@ -7,15 +7,15 @@ A **process** is an independent unit of execution with its own memory address sp
 ```
 Process (own address space)
 ┌─────────────────────────────────────────────┐
-│  Code  |  Data  |  Heap  |  Open File Descs   │
-│                                                │
-│  Thread 1        Thread 2        Thread 3      │
-│  ┌────────┐      ┌────────┐      ┌────────┐   │
-│  │ Stack  │      │ Stack  │      │ Stack  │   │
-│  │ Regs   │      │ Regs   │      │ Regs   │   │
-│  │ PC     │      │ PC     │      │ PC     │   │
-│  └────────┘      └────────┘      └────────┘   │
-│     (all threads share the SAME heap/data)     │
+│  Code  |  Data  |  Heap  |  Open File Descs │
+│                                             │
+│  Thread 1        Thread 2        Thread 3   │
+│  ┌────────┐      ┌────────┐      ┌────────┐ │
+│  │ Stack  │      │ Stack  │      │ Stack  │ │
+│  │ Regs   │      │ Regs   │      │ Regs   │ │
+│  │ PC     │      │ PC     │      │ PC     │ │
+│  └────────┘      └────────┘      └────────┘ │
+│     (all threads share the SAME heap/data)  │
 └─────────────────────────────────────────────┘
 ```
 
@@ -30,14 +30,14 @@ Consequence: creating a thread is much cheaper than creating a process (no new a
           [ NEW ]
               │
               ▼
-         [ READY ]  ◄────────────────┐
+         [ READY ]  ◄─────────────────┐
               │                       │
      scheduler picks it       preempted / time
               │                slice expired
               ▼                       │
-         [ RUNNING ] ──────────────────┘
+         [ RUNNING ] ─────────────────┘
               │
-    ┌─────────┼─────────────┐
+    ┌─────────┼──────────────┐
     │         │              │
  blocks on   exits       receives signal
  I/O/lock     │              │

@@ -24,7 +24,7 @@ This becomes the cgroup's `memory.max` — a genuine hard ceiling. But unlike CP
 Container requests more memory than memory.max allows
               │
               ▼
-        Kernel
+            Kernel
               │
               ▼
       OOM (Out-Of-Memory condition triggered

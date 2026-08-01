@@ -34,7 +34,7 @@ resources:
 
 ```
       Period (repeats every 100ms)
- |------ 0-100ms: container consumes its full 100ms quota ------|
+ |------ 0-100ms: container consumes its full 100ms quota ---------|
                                                                    │
                                                           Quota exhausted
                                                                    │
